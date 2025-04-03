@@ -5,29 +5,28 @@ public class converString {
         String s = "the-string";
         StringBuilder conStr = new StringBuilder(s);
 
-        // seearch for char -
-        // get indx for char
-        // swap elem infront of id char
-        //  rebuild string
+      /**
+       * 1. set the target
+       * 2.turn string to array
+       * 3. loop through and find target
+       * 4. del target and replace char /  to upper case it
+       */
         
         String target = "-";
         String[] strArray = s.chars()
                             .mapToObj(c-> String.valueOf((char)c))
                             .toArray(String[]:: new);
+
         for (int i = 0; i < strArray.length; i++) {
-            // boolean heck = strArray[i].contains(target);
-            // System.out.println(heck);
-            conStr.append(strArray[i])
             if (strArray[i].contains(target)) {
-                String temp = strArray[i];
-                strArray[i] = "P";
-                conStr.append(strArray[i]);
-                System.out.println(strArray[i]);
+                String tempString = strArray[i + 1];
+                strArray[i + 1] = "P";  
             }
-            
+            conStr.append(strArray[i]);       
         }
-       // System.out.println(conStr);
+        System.out.println(conStr);
+
+
         
-  
     }
 }
