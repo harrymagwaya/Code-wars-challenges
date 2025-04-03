@@ -1,10 +1,10 @@
 package com.example;
 
+
 public class converString {
     public static void main(String[] args) {
-        String s = "the-string";
-        StringBuilder conStr = new StringBuilder(s);
-
+        String s = "the-string-me";
+        StringBuilder conStr = new StringBuilder();
       /**
        * 1. set the target
        * 2.turn string to array
@@ -20,13 +20,10 @@ public class converString {
         for (int i = 0; i < strArray.length; i++) {
             if (strArray[i].contains(target)) {
                 String tempString = strArray[i + 1];
-                strArray[i + 1] = "P";  
+                strArray[i + 1] = tempString.toUpperCase();  
             }
-            conStr.append(strArray[i]);       
+            conStr.append(strArray[i]);     
         }
-        System.out.println(conStr);
-
-
-        
+        System.out.println(conStr);     
     }
 }
