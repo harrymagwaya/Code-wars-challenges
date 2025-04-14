@@ -1,6 +1,7 @@
 package com.example;
 
-import java.util.regex.Pattern;
+import java.util.ArrayList;
+
 
 /**
  * A pangram is a sentence that contains every single letter of the alphabet at
@@ -14,28 +15,37 @@ import java.util.regex.Pattern;
 
  //Algorithm
  /**
-  * 1. turn string to array for easy looping
+  * 1. set string to lower case
   * 2. set target / items to search for ie A-Z 
-  * set count to be equal to count of alphabet  = 26
-  * 3. loop through sentense array trying to find target return true if target found then increase count
-  * 4. return false if !count == 26  
+  * 3. set boolean to true incase finds target in loop
+  * 3. loop through arr with results to see if all true return true
+  * 4. if finds false then return false  
   */
 public class DetectPangram {
    
     public static void main(String[] args) {
         String sentence = "Cwm fjord bank glyphs vext quiz";
-        boolean checkAlphabet = false;
+        ArrayList<Boolean> checkAlphabet = new ArrayList<>();
         sentence.toLowerCase();
-        
-        int count = 0;
+        boolean allTrue = false;
+        int countTrueValues = 0;
+    
         for (char i = 'a'; i <= 'z' ; i++) {
             if (sentence.contains(String.valueOf(i))) {
-                count++;
+                checkAlphabet.add(true);
+                countTrueValues++;
+            }else {
+                checkAlphabet.add(false);
             }
         }
-        if (count == 26) {
-            checkAlphabet = true;
+
+        for (Boolean boolean1 : checkAlphabet) {
+            //System.out.println(boolean1);
+            if (countTrueValues > 25) {
+                allTrue = true;
+            }
         }
-        System.out.println(checkAlphabet);
+        System.out.println(countTrueValues);
+        System.out.println(allTrue);
     }
 }
